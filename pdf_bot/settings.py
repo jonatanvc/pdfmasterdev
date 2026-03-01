@@ -6,7 +6,10 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        extra="ignore", env_file=[Path(".env.test"), Path(".env")], env_file_encoding="utf-8"
+        extra="ignore",
+        env_file=[Path(".env.test"), Path(".env")],
+        env_file_encoding="utf-8",
+        case_sensitive=False,
     )
 
     telegram_token: str = Field(...)
